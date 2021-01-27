@@ -1,35 +1,14 @@
 import discord
-from datetime import datetime
-from discord.ext import tasks
+import asyncio
 
+client = discord.Client()
 
-from discord.ext import commands
-import os
-import traceback
+@client.event
+async def on_ready():
+    asyncio.ensure_future(greeting_gm())
 
-bot = commands.Bot(command_prefix='/')
-token = os.environ['DISCORD_BOT_TOKEN']
+async def greeting_gm():
+    await client.send_message(channel, 'おはよう')
+    await asyncio.sleep(10)
 
-
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
-
-
-@bot.command()
-async def ping(ctx):    
-    
-    
-    
-    await ctx.send('pong')
-    
-    
-    
-
-
-
-
-    
-        bot.run(token)
+client.run(token)
