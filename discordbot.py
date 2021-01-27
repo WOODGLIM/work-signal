@@ -1,21 +1,42 @@
+import time
+import asyncio
 from discord.ext import commands
 import os
 import traceback
+import discord
+from discord.ext import tasks
+import asyncio
+from datetime import datetime, timedelta, timezone
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
+CHANNEL_ID = 803619260349677589
+
+# 接続に必要なオブジェクトを生成
+client = discord.Client()
 
 
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
+@client.event
+async def on_ready():
+    while True:
+        channel = client.get_channel(CHANNEL_ID)
+
+        # JP時間
+        JST = timezone(timedelta(hours=+9), 'JST') 
+        now = datetime.now(JST).strftime('%H:%M')
+
+        if now == '08:00':
+
+            await channel.send('　開始')
+
+        if now == '12:00':
+
+            await channel.send('　お昼')
+            
+        if now == '17:00':
+
+            await channel.send('　終わり')
 
 
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-
-
-bot.run(token)
+        time.sleep(60)
+client.run(token)
