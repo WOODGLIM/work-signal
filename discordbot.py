@@ -29,21 +29,7 @@ async def ping(ctx):
     
 
 
-@tasks.loop(seconds=60)
-    async def loop():
-    # 現在の時刻
-    now = datetime.now(JST).strftime('%H:%M')
-    if now == '17:27':
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send('おはよう')  
 
-    
-    
-    #ループ処理実行
-    loop.start()
-    
-    # Botの起動とDiscordサーバーへの接続
-    client.run(TOKEN)
 
     
         bot.run(token)
