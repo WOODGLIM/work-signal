@@ -1,28 +1,29 @@
-import discord
-import datetime
+from discord.ext import commands
+import os
+import traceback
 
-client = discord.Client()
+
+
+bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
+# 接続に必要なオブジェクトを生成
+client = discord.Client()
 
-@client.event
-async def on_ready():
-    print('時報機が起動しました。')
 
-@client.event
-async def on_message(message):
-    
-    date = datetime.datetime.now()
-    hour = date.hour
-    min = date.minute
-    
-        if message.author.bot:
-           return
-        if message.content == '何時？':
-            await message.channel.send(str(hour) + '時です。')
-        if message.content == '何分？':
-             await message.channel.send(str(min) + '分です。')
-        if message.content == '何時何分？':
-             await message.channel.send(str(hour) + '時' + str(min) + '分です。')
+@bot.event
+async def on_command_error(ctx, error):
+    orig_error = getattr(error, "original", error)
+    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+    await ctx.send(error_msg)
 
-client.run(token)
+
+@bot.command()
+async def loop(ctx):
+
+#ループ処理実行
+loop.start(60)
+    await ctx.send('時間だよ')
+
+
+bot.run(token)
