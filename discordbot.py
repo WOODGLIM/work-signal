@@ -1,7 +1,7 @@
 #ループのおまじない
 import discord
-from discord.ext import tasks
 from datetime import datetime 
+from discord.ext import tasks
 
 token = os.environ['DISCORD_BOT_TOKEN']
 #チャンネル指定
@@ -14,7 +14,7 @@ client = discord.Client()
 async def loop():
     # 現在の時刻
     now = datetime.now(JST).strftime('%H:%M')
-    if now == '17:15':
+    if now == '17:16':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('おはよう')
 #ループ処理実行
