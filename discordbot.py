@@ -37,7 +37,7 @@ async def on_ready():
 
             await channel.send('　終わり')
             
-        if now == '21:15':
+        if now == '22:00':
 
             await channel.send('　寝る時間')
 
