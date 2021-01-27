@@ -10,7 +10,7 @@ from datetime import datetime, timedelta, timezone
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-CHANNEL_ID = 803619260349677589
+CHANNEL_ID = 803967523954360363
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
