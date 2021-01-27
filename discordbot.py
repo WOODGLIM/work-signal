@@ -19,9 +19,12 @@ async def on_command_error(ctx, error):
 
 
 @bot.command()
-async def ping(ctx):
-    
-    TOKEN = "DISCORD_BOT_TOKEN" #トークン
+async def ping(ctx):    
+    await ctx.send('pong')
+    bot.run(token)
+
+
+TOKEN = "DISCORD_BOT_TOKEN" #トークン
     CHANNEL_ID = "803619260349677589" #チャンネルID
     # 接続に必要なオブジェクトを生成
     client = discord.Client()
@@ -37,7 +40,5 @@ async def ping(ctx):
     #ループ処理実行
     loop.start()
     
-    await ctx.send('pong')
-
-
-bot.run(token)
+    # Botの起動とDiscordサーバーへの接続
+    client.run(TOKEN)
