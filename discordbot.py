@@ -17,20 +17,7 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
-# 60秒に一回ループ
-@tasks.loop(seconds=60)
-async def loop():
-    # 現在の時刻
-    now = datetime.now().strftime('%H:%M')
-    if now == '16:50':
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send('おはよう')
-#ループ処理実行
-loop.start()
-# Botの起動とDiscordサーバーへの接続
-client.run(TOKEN)
-
-
+    
 @bot.command()
 async def ws(ctx):
     JST = timezone(timedelta(hours=+9), 'JST')      
@@ -42,5 +29,18 @@ async def ws(ctx):
        ms = youbi + " ワークシグナルだよ"
        await ctx.send(ms)
 
+    
+# 60秒に一回ループ
+@tasks.loop(seconds=60)
+async def loop():
+    # 現在の時刻
+    now = datetime.now().strftime('%H:%M')
+    if now == '16:50':
+        channel = client.get_channel(CHANNEL_ID)
+        await channel.send('おはよう')
+#ループ処理実行
+loop.start()
+    
+    
 
 bot.run(token)
