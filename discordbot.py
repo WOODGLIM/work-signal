@@ -2,8 +2,8 @@ import discord
 from datetime import datetime
 from discord.ext import tasks
 
-TOKEN = "**********" #トークン
-CHANNEL_ID = ********** #チャンネルID
+TOKEN = "DISCORD_BOT_TOKEN" #トークン
+CHANNEL_ID = "803619260349677589" #チャンネルID
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
 
