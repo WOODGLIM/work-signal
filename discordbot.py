@@ -2,9 +2,7 @@ from discord.ext import commands
 import os
 import traceback
 from datetime import datetime, timedelta, timezone
-#ループのおまじない
-import discord
-from discord.ext import tasks
+
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
