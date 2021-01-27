@@ -6,7 +6,8 @@ from datetime import datetime
 token = os.environ['DISCORD_BOT_TOKEN']
 #チャンネル指定
 CHANNEL_ID = "803619260349677589"
-
+# 接続に必要なオブジェクトを生成
+client = discord.Client()
 
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
