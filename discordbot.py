@@ -14,7 +14,7 @@ client = discord.Client()
 async def loop():
     # 現在の時刻
     now = datetime.now(JST).strftime('%H:%M')
-    if now == '17:08':
+    if now == '17:15':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('おはよう')
 #ループ処理実行
