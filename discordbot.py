@@ -26,7 +26,7 @@ async def wk(ctx):
     
     if we != 0 and we!= 6:
        youbi = datetime.now(JST).strftime('%A')
-       ms = youbi + " 仕事だよー"
+       ms = youbi + " ワークシグナルだよ"
        await ctx.send(ms)
 
 
