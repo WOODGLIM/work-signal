@@ -34,8 +34,8 @@ async def ws(ctx):
 @tasks.loop(seconds=60)
 async def loop():
     # 現在の時刻
-    now = datetime.now().strftime('%H:%M')
-    if now == '16:55':
+    now = datetime.now(JST).strftime('%H:%M')
+    if now == '16:58':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('おはよう')
 #ループ処理実行
