@@ -36,6 +36,10 @@ async def on_ready():
         if now == '17:00':
 
             await channel.send('　終わり')
+            
+        if now == '21:15':
+
+            await channel.send('　寝る時間')
 
 
         time.sleep(60)
