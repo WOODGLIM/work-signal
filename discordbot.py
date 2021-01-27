@@ -19,7 +19,7 @@ async def on_command_error(ctx, error):
 
 
 @bot.command()
-async def wk(ctx):
+async def ws(ctx):
     JST = timezone(timedelta(hours=+9), 'JST')      
     now = datetime.now(JST)
     we = now.isoweekday()
