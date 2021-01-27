@@ -20,6 +20,5 @@ async def loop():
 #ループ処理実行
 loop.start()
     
-    
-
-bot.run(token)
+# Botの起動とDiscordサーバーへの接続
+client.run(TOKEN)
