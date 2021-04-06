@@ -37,10 +37,5 @@ async def on_ready():
 
             await channel.send('　終わり')
             
-        if now == '22:00':
-
-            await channel.send('　寝る時間')
-
-
         time.sleep(60)
 client.run(token)
